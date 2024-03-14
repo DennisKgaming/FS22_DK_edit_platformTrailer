@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="baleGrab" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/vehicle.xsd">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+     <storeData>
+        <name>$l10n_shopItem_hydraulicClamp</name>
+        <specs>
+            <combination xmlFilename="platformTrailer.xml"/>
+        </specs>
+        <functions>
+            <function>$l10n_function_frontloaderPalletFork</function>
+        </functions>
+        <image>store/store_hydraulicClamp.dds</image>
+        <price>2000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <category>misc</category>
+        <vertexBufferMemoryUsage>189952</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>35584</indexBufferMemoryUsage>
+        <textureMemoryUsage>524288</textureMemoryUsage>
+        <audioMemoryUsage>0</audioMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_telehandlerTool</typeDesc>
+        <filename>hydraulicClamp.i3d</filename>
+        <size width="3" length="3.5"/>
+        <supportsPickUp>false</supportsPickUp>
+		 <components>
+            <component centerOfMass="0 1.2 0" solverIterationCount="20" mass="700" />
+            <component solverIterationCount="50" mass="150" />
+            <component solverIterationCount="50" mass="150" />
+            <joint component1="1" component2="2" node="leftGrabJoint" rotLimit="0 0 0" transLimit="0 0 0" rotLimitSpring="180 0 0" rotLimitDamping="10 0 0" rotLimitForceLimit="10 -1 -1"/>
+            <joint component1="1" component2="3" node="rightGrabJoint" rotLimit="0 0 0" transLimit="0 0 0" rotLimitSpring="180 0 0" rotLimitDamping="10 0 0" rotLimitForceLimit="10 -1 -1"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0" name="IMPLEMENT" />
+        <mapHotspot type="TOOL" />
+    </base>
+
+	 <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint01" rootNode="palletGrab_main_component1" jointType="bigBag" lowerRotLimitScale="1 1 1" upperRotLimitScale="1 1 1" attachAngleLimitAxis="3"/>
+            <inputAttacherJoint node="attacherJoint02" rootNode="palletGrab_main_component1" jointType="bigBag" lowerRotLimitScale="1 1 1" upperRotLimitScale="1 1 1" attachAngleLimitAxis="3"/>
+        </inputAttacherJoints>
+    </attachable>
+	
+	<baleGrab triggerNode="dynamicMountTrigger" rootNode="0>" jointNode="dynamicMountTrigger" jointType="TYPE_AUTO_ATTACH_XYZ" forceAcceleration="90" grabRefComponentJointIndex1="1" grabRefComponentJointIndex2="2" rotDiffThreshold1="4" rotDiffThreshold2="-4" />
+	
+    <cylindered>
+        <movingTools>
+            <movingTool node="rightGrabJoint" playSound="true">
+                <controls axis="AXIS_CRANE_TOOL3" invertAxis="true" mouseSpeedFactor="0.3" iconName="GRABBER_OPEN_CLOSE" />
+                <rotation rotationAxis="1" rotSpeed="35" rotAcceleration="250" rotMax="105" rotMin="75" />
+                <componentJoint index="2" anchorActor="0" />
+				<dependentMovingTool node="leftGrabJoint" speedScale="-1" />
+            </movingTool>
+            <movingTool node="leftGrabJoint" playSound="true">
+                <rotation rotationAxis="1" rotSpeed="35" rotAcceleration="250" rotMax="105" rotMin="75" />
+				<componentJoint index="1" anchorActor="0" />
+			</movingTool>
+	   </movingTools>
+
+        <movingParts>
+            <movingPart node="leftGrabArm" referencePoint="leftGrabArmRef" referenceFrame="leftGrabArmRef" limitedAxis="1" isActiveDirty="true" maxUpdateDistance="50">
+                <dependentPart node="hydraulicGrab" />
+            </movingPart>
+            <movingPart node="rightGrabArm" referencePoint="rightGrabArmRef" referenceFrame="rightGrabArmRef" limitedAxis="1" isActiveDirty="true" maxUpdateDistance="50">
+                <dependentPart node="hydraulicGrab" />
+            </movingPart>
+            <movingPart node="hydraulicGrab" referencePoint="hydraulicGrabRef" referenceFrame="hydraulicGrabRef" >
+                <translatingPart node="hydraulicGrabPunch" />
+            </movingPart> 
+	   </movingParts>
+
+        <sounds>
+            <actionSound template="defaultHydraulicSound" pitchScale="0.6" volumeScale="2"   linkNode="leftGrabJoint"  actionNames="TOOL_MOVE_POS TOOL_MOVE_NEG"     nodes="leftGrabJoint"/>
+            <actionSound template="clackVar6"             pitchScale="0.9" volumeScale="1.4" linkNode="rightGrabJoint" actionNames="TOOL_MOVE_END_POS_LIMIT"         nodes="rightGrabJoint"/>
+            <actionSound template="cylinderPunch"         pitchScale="2"   volumeScale="0.5" linkNode="rightGrabJoint" actionNames="TOOL_MOVE_END_POS_LIMIT"         nodes="rightGrabJoint"/>
+            <actionSound template="clackVar6"             pitchScale="0.6" volumeScale="1.7" linkNode="rightGrabJoint" actionNames="TOOL_MOVE_END_NEG_LIMIT"         nodes="rightGrabJoint"/>
+            <actionSound template="sheetImp02"            pitchScale="0.8" volumeScale="2"   linkNode="rightGrabJoint" actionNames="TOOL_MOVE_END_NEG_LIMIT"         nodes="rightGrabJoint"/>
+        </sounds>
+    </cylindered>
+
+    <ai>
+        <agentAttachment width="1.0" height="1.8" length="1.5" lengthOffset="0"/>
+    </ai>
+
+    <baseMaterial>
+        <material name="hydraulicClamp_mat" baseNode="middleFrame">
+            <shaderParameter name="colorMat0" value="1 0.659 0 0" />
+        </material>
+    </baseMaterial>
+
+    <baseMaterialConfigurations price="50" useDefaultColors="true" defaultColorIndex="8">
+        <baseMaterialConfiguration name="$l10n_Lizard_yellow" color="1 0.659 0 0" material="0" />
+        <baseMaterialConfiguration name="$l10n_Lizard_green" color="0.198 0.283 0.133 0" material="0" />
+        <material name="hydraulicClamp_mat" shaderParameter="colorMat0"/>
+    </baseMaterialConfigurations>
+
+    <foliageBending>
+        <bendingNode minX="-0.45" maxX="0.45" minZ="-0.6" maxZ="-0.15" yOffset="0.02" />
+    </foliageBending>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="palletGrab_main_component1" node="0>" />
+        <i3dMapping id="palletGrab_left_component2" node="1>" />
+        <i3dMapping id="palletGrab_right_component3" node="2>" />
+        <i3dMapping id="middleFrame" node="0>0" />
+        <i3dMapping id="attacherJoint01" node="0>0|0|0" />
+        <i3dMapping id="attacherJoint02" node="0>0|0|1" />
+        <i3dMapping id="leftGrabArm" node="0>0|1" />
+        <i3dMapping id="rightGrabArm" node="0>0|2" />
+       
+	    <i3dMapping id="leftGrabJoint" node="0>0|4|0" />
+        <i3dMapping id="rightGrabJoint" node="0>0|5|0" />
+        <i3dMapping id="hydraulicGrab" node="0>0|1|0" />
+        <i3dMapping id="hydraulicGrabRef" node="0>0|2|0" />
+        <i3dMapping id="hydraulicGrabPunch" node="0>0|1|0|0" />
+        <i3dMapping id="leftGrabArmRef" node="1>0" />
+        <i3dMapping id="rightGrabArmRef" node="2>0" />
+        <i3dMapping id="colpart" node="2>2" />
+        <i3dMapping id="colpart1" node="1>2" />
+        <i3dMapping id="dynamicMountTrigger" node="0>0|6" />
+        <i3dMapping id="outsideFrameLeft" node="0>0|4" />
+        <i3dMapping id="outsideFrameRight" node="0>0|5" />
+    </i3dMappings>
+</vehicle>

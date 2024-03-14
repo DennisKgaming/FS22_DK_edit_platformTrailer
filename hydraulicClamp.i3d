@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="hydraulicClamp.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.4"/>
+  </Asset>
+
+  <Files>
+    <File fileId="4" filename="textures/palletGrab_Vmask.dds"/>
+    <File fileId="3" filename="textures/palletGrab_normal.dds"/>
+    <File fileId="5" filename="$data/shaders/vehicleShader.xml"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="hydraulicClamp_mat" materialId="5" diffuseColor="0.8 0.8 0.8 1" customShaderId="5" customShaderVariation="colorMask">
+      <Normalmap fileId="3"/>
+      <Glossmap fileId="4"/>
+      <CustomParameter name="colorMat0" value="0.8 0.55 0.05 0"/>
+    </Material>
+    <Material name="lambert1" materialId="6" diffuseColor="0.8 0.8 0.8 1" specularColor="0.494118 1 0">
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="hydraulicClamp.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <Shape shapeId="1" name="palletGrab_main_component1" rotation="-6.83019e-06 -0 0" dynamic="true" compound="true" collisionMask="2109442" clipDistance="300" nodeId="21" materialIds="6" castsShadows="true" receiveShadows="true" nonRenderable="true">
+        <Shape shapeId="2" name="middleFrame" translation="0 1.222 0" rotation="-6.83019e-06 -0 0" clipDistance="300" nodeId="45" materialIds="5" castsShadows="true" receiveShadows="true">
+          <TransformGroup name="attacherJoints" translation="-0.00438985 0.633943 0" rotation="-6.83019e-06 -0 0" nodeId="23">
+            <TransformGroup name="attacherJoint01" translation="0.00438985 0.120164 -0.0117246" rotation="90 -0 -90" nodeId="24"/>
+            <TransformGroup name="attacherJoint02" translation="0.00438985 0.120164 -0.0117246" rotation="-90 -0 -90" nodeId="25"/>
+          </TransformGroup>
+          <Shape shapeId="3" name="frameLeft" translation="0 0 -0.575" rotation="90 -0 0" clipDistance="300" nodeId="26" materialIds="5" castsShadows="true" receiveShadows="true">
+            <Shape shapeId="4" name="hydraulic" translation="0 0 -0.353" rotation="-90 -0 0" clipDistance="300" nodeId="27" materialIds="5" castsShadows="true" receiveShadows="true">
+              <Shape shapeId="5" name="hydraulicPunch" translation="0 -1.76171e-08 1.15" rotation="-6.83019e-06 -0 0" clipDistance="300" nodeId="28" materialIds="5" castsShadows="true" receiveShadows="true"/>
+            </Shape>
+          </Shape>
+          <Shape shapeId="6" name="frameRight" translation="0 0 0.575" rotation="90 -0 0" clipDistance="300" nodeId="29" materialIds="5" castsShadows="true" receiveShadows="true">
+            <TransformGroup name="hydraulicGrabRef" translation="0 0 -0.353" rotation="-90 -3.08581e-06 0" nodeId="30"/>
+          </Shape>
+          <Shape shapeId="7" name="liftingEye" translation="0 0.63 -2.94008e-08" rotation="-6.83019e-06 -0 0" clipDistance="300" nodeId="31" materialIds="5" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="8" name="outsideFrameLeft" translation="0 0 -0.05" rotation="-6.83019e-06 -0 0" clipDistance="300" nodeId="32" materialIds="5" castsShadows="true" receiveShadows="true">
+            <TransformGroup name="leftGrabJointFrame" translation="0 -2.29482e-08 -0.525" rotation="90 0 0" nodeId="33"/>
+          </Shape>
+          <Shape shapeId="9" name="outsideFrameRight" translation="0 0 0.05" rotation="-6.83019e-06 -0 0" clipDistance="300" nodeId="34" materialIds="5" castsShadows="true" receiveShadows="true">
+            <TransformGroup name="rightGrabJointFrame" translation="0 2.29482e-08 0.525" rotation="90 0 0" nodeId="35"/>
+          </Shape>
+          <Shape shapeId="10" name="dynamicMountTrigger" translation="0 -0.6 -1.44795e-07" kinematic="true" compound="true" trigger="true" collisionMask="18874368" nodeId="36" materialIds="6" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+        </Shape>
+      </Shape>
+      <Shape shapeId="11" name="palletGrab_left_component2" translation="0 1.22241 -0.575" rotation="-6.83019e-06 -0 0" dynamic="true" compound="true" collisionMask="2109442" clipDistance="300" nodeId="37" materialIds="6" castsShadows="true" receiveShadows="true" nonRenderable="true">
+        <TransformGroup name="leftGrabArmRef" translation="0 -1.17185 5.12232e-08" rotation="90 -0 0" nodeId="38"/>
+        <Shape shapeId="12" name="colpart1" rotation="-6.83019e-06 -0 0" static="true" compoundChild="true" collisionMask="2109442" density="0.0001" nodeId="39" materialIds="6" nonRenderable="true"/>
+        <Shape shapeId="12" name="colpart1dynamic" rotation="-6.83019e-06 -0 0" static="true" compoundChild="true" collisionMask="134225922" density="0.0001" nodeId="40" materialIds="6" nonRenderable="true"/>
+      </Shape>
+      <Shape shapeId="11" name="palletGrab_right_component3" translation="0 1.22241 0.575" rotation="-6.83019e-06 -0 0" dynamic="true" compound="true" collisionMask="2109442" clipDistance="300" nodeId="41" materialIds="6" castsShadows="true" receiveShadows="true" nonRenderable="true">
+        <TransformGroup name="rightGrabArmRef" translation="0 -1.17185 5.12232e-08" rotation="90 0 2.4692e-05" nodeId="42"/>
+        <Shape shapeId="12" name="colpart" rotation="-6.83019e-06 -0 0" static="true" compoundChild="true" collisionMask="2109442" density="0.0001" nodeId="43" materialIds="6" nonRenderable="true"/>
+        <Shape shapeId="12" name="colpartdynamic" rotation="-6.83019e-06 -0 0" static="true" compoundChild="true" collisionMask="134225922" density="0.0001" nodeId="44" materialIds="6" nonRenderable="true"/>
+      </Shape>
+  </Scene>
+
+</i3D>

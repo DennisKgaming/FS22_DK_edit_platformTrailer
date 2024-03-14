@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="79">
+    <author>Pascal Kautz</author>
+    <version>1.0.0.2</version>
+    <title>
+        <en>Platform Trailer With Crane</en>
+		
+        <nl>Platform Oplegger Met Kraan</nl>
+		   
+        <fr>Semi-Remorque A Plateforme Avec Grue</fr>
+		   
+        <de>Plattformauflieger Mit Kran</de>
+    </title>
+    <description>
+        <en><![CDATA[The Lizard platform trailer is a conventient trailer because of it's crane. 
+The crane excludes the need of a forklift and can be used in practically every situation.
+
+The hook can be used to pick up bigbags. 
+This trailer also comes with a palletfork wich can be attached to the hook.
+
+Hydraulic Clamp is an accessory for the crane of the platform trailer.
+The hydraulic clamp can also be used to pick up bales.
+
+Price:
+- Trailer: 58.000$
+- Palletfork: 2.000$
+- Hydraulic Clamp:  2.000$
+
+ChangeLog 1.0.0.2:
+- Added semi-trailer without crane
+- Added Hydraulic Clamp]]></en> 
+        <nl><![CDATA[De platformoplegger is een handige oplegger door zijn kraan.
+De kraan maakt de noodzaak van een vorkheftruck overbodig en kan in vrijwel elke situatie worden gebruikt.
+
+De haak kan worden gebruikt voor het oppakken van bigbags.
+Deze aanhanger wordt tevens geleverd met een palletvork die aan de haak kan worden bevestigd.
+
+Hydraulische Klem is een hulpstuk voor de kraan van de plateau oplegger.
+De hydraulische klem kan ook gebruikt worden om balen op te pakken.
+
+Prijs:
+- Oplegger: 58.000€
+- Palletvork: 2.000€
+- Hydraulische klem: 2.000€
+
+ChangeLog 1.0.0.2:
+- Oplegger zonder kraan toegevoegd
+- Hydraulische klem toegevoegd]]></nl>	   
+        <fr><![CDATA[La Lizard remorque plateforme est une remorque maniable grâce à sa grue.
+La grue élimine le besoin d’un chariot élévateur et peut être utilisée dans presque toutes les situations.
+
+Le crochet peut être utilisé pour ramasser des big bag.
+Cette remorque est également livrée avec une fourche à palette qui peut être fixée au crochet.
+
+La pince hydraulique est un accessoire pour la grue de la remorque à plateforme.
+La pince hydraulique peut également être utilisée pour ramasser des balles.
+
+Prix:
+- Semi-remorque : 58.000 €
+- Fourche à palettes : 2.000€
+- Hydraulische klem: 2.000€
+- Pince hydraulique: 2.000€
+
+ChangeLog 1.0.0.2: 
+- Ajout d'une semi-remorque sans grue
+- Ajout la pince hydraulique]]></fr>   
+        <de><![CDATA[Der Lizard Plattformauflieger ist aufgrund seines Krans ein handlicher auflieger.
+Der Kran macht einen Gabelstapler überflüssig und kann in nahezu jeder Situation eingesetzt werden.
+
+Der Haken kann zum Aufnehmen von Big Bags verwendet werden.
+Zu diesem Anhänger gehört auch eine Palettengabel, die am Haken befestigt werden kann.
+
+Die hydraulische Klemme ist ein Zubehör für den Kran des Plattformanhängers.
+Die hydraulische Zange kann auch zum Aufnehmen von Ballen verwendet werden.
+
+Preis:
+- Auflieger: 58.000€
+- Palettengabel: 2.000€
+- Hydraulische Klemme: 2.000€
+
+ChangeLog 1.0.0.2:
+- Sattelauflieger ohne Kran hinzugefügt
+- Hydraulische Klemme hinzugefügt]]></de>
+    </description>
+	
+    <iconFilename>icon_platformTrailer.png</iconFilename>
+	
+    <multiplayer supported="true"/>
+
+	<l10n>
+		<text name="Lizard_green">
+			<en>Lizard Green</en>
+			<de>Lizard Grün </de>
+			<fr>Lizard Vert</fr>
+			<nl>Lizard Groen</nl>
+		</text>		
+		<text name="Lizard_yellow">
+			<en>Lizard Yellow</en>
+			<de>Lizard Gelb </de>
+			<fr>Lizard Jaune</fr>
+			<nl>Lizard Geel</nl>
+		</text>	
+		<text name="action_openSides">
+			<en>Open Sides</en>
+			<de>Seiten Öffnen</de>
+			<fr>Ouvrir Les Côtés</fr>
+			<nl>Zijkanten Openen</nl>
+		</text>	
+		<text name="action_closeSides">
+			<en>Close Sides</en>
+			<de>Seiten Schließen</de>
+			<fr>Fermer Les Côtés</fr>
+			<nl>Zijkanten Sluiten</nl>
+		</text>
+		<text name="shopItem_hydraulicClamp">
+			<en>Hydraulic Clamp</en>
+			<de>Hydraulische Klemme</de>	
+			<fr>Pince Hydraulique</fr>		
+			<nl>Hydraulische Klem</nl>
+		</text>		
+	</l10n>
+	
+    <storeItems>
+        <storeItem xmlFilename="platformTrailer.xml"/>
+        <storeItem xmlFilename="platformTrailer02.xml"/>
+        <storeItem xmlFilename="craneFork.xml"/>
+        <storeItem xmlFilename="hydraulicClamp.xml"/>
+    </storeItems>
+</modDesc>
